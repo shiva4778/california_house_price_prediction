@@ -7,7 +7,7 @@ app=Flask(__name__)
 def index():
     logging.info('Raising exception intentionally')
     try:
-        a=1/0
+        raise('we are testing custom exception')
     
     except Exception as e:
         housing=HousingException(e,sys)
