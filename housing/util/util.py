@@ -16,3 +16,4 @@ def read_yaml_file(file_path:str)->dict:
         raise HousingException(e,sys) from e
     
 
+
