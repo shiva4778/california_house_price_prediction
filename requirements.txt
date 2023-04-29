@@ -5,4 +5,5 @@ Flask
 gunicorn
 collection
 PyYAML
+six
 -e .

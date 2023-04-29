@@ -50,7 +50,7 @@ class Configuration:
     def get_data_validation_config(self)->DataValidationConfig:
 
         try:
-            artifact_dir=self.get_training_pipeline_config.artifact_dir
+            artifact_dir=self.training_pipeline_config.artifact_dir
             data_validation_artifact_dir=os.path.join(artifact_dir,DATA_VALIDATION_ARTIFACT_DIR)
             data_validation_info=self.config_info[DATA_VALIDATION_CONFIG_KEY]
             schema_dir=os.path.join(data_validation_artifact_dir,data_validation_info[DATA_VALIDATION_SCHEMA_DIR_KEY])
@@ -66,7 +66,7 @@ class Configuration:
             raise(e,sys)
     def get_data_transformation_config(self)->DataTransformationConfig:
         try:
-            artifact_dir=self.get_training_pipeline_config.artifact_dir
+            artifact_dir=self.training_pipeline_config.artifact_dir
             data_transformation_artifact_dir=os.path.join(artifact_dir,DATA_TRANSFORMATION_ARTIFACT_DIR)
             data_transformation_info=self.config_info[DATA_TRANSFORMATION_CONFIG_KEY]
             data_transformation_add_bedroom_per_room=os.path.join(data_transformation_artifact_dir,data_transformation_info[DATA_TRANSFORMATION_ADD_BEDROOM_PER_ROOM_KEY])
@@ -86,7 +86,7 @@ class Configuration:
             raise(e,sys)
     def get_model_evaluation_config(self):
         try:
-            artifact_dir=self.get_training_pipeline_config.artifact_dir
+            artifact_dir=self.training_pipeline_config.artifact_dir
             model_evaluation_artifact_dir=os.path.join(artifact_dir,MODEL_TRAINER_DIR)
             trained_model_info=self.config_info[MODEL_TRAINER_CONFIG_KEY]
             trained_model_dir=os.path.join(model_evaluation_artifact_dir,trained_model_info[TRAINED_MODEL_DIR_KEY])
@@ -106,7 +106,7 @@ class Configuration:
             raise(e,sys)
     def get_model_pusher_config(self):
         try:
-            artifact_dir=self.get_training_pipeline_config.artifact_dir
+            artifact_dir=self.training_pipeline_config.artifact_dir
             model_pusher_config_dir=os.path.join(artifact_dir,MODEL_PUSHER_CONFIG_DIR_KEY)
             model_pusher_info=self.config_info[MODEL_PUSHER_CONFIG_KEY]
             model_pusher_export_dir=os.path.join(model_pusher_config_dir,model_pusher_info[MODEL_PUSHER_EXPORT_DIR_KEY])
