@@ -6,4 +6,5 @@ gunicorn
 collection
 PyYAML
 six
+evidently
 -e .

@@ -1,36 +1,28 @@
-from setuptools import setup,find_packages
-from typing import List,Dict
+from setuptools import find_packages,setup
+from typing import List
 
+HYPEN_E_DOT = '-e .'
+def get_requirements(file_path:str)->List[str]:
+    '''
+    This function will return th list of requirements.
+    '''
+    requirements=[]
+    with open(file_path) as file_obj:
+        requirements=file_obj.readlines()
+        requirements = [req.replace('\n','') for req in requirements]
 
+        if HYPEN_E_DOT in requirements:
+            requirements.remove(HYPEN_E_DOT)
+    return requirements
 
-
-#Declaring variable for setup function
-PROJECT_NAME="housing-predictor"
-versions='3.9.12'
-author='Shivanshu'
-descriptions="Complete industrial level machine learning project"
-
-REQUIREMENTS_FILE_NAME='requirements.txt'
-def get_requirements_list()->List[str]:
-    """
-    This function is going to return the list of library present in requirements.txt
-    
-    
-    """
-    with open(REQUIREMENTS_FILE_NAME) as requirement_file:
-        return requirement_file.readlines().remove('-e .')
 
 
 setup(
-    name=PROJECT_NAME,
-      version=versions,
-      author=author,
-      description=descriptions,
-      packages=find_packages(),
-      install_requires=get_requirements_list()
-      )
-
-
-
-
-
+    name='mlproject',
+    version='0.0.1',
+    author='ayush-pujari-07',
+    author_email='ayush08.pujari@gmail.com',
+    packages=find_packages(),
+    install_requires = get_requirements('requirements.txt'),
+    
+)
